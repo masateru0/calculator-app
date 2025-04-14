@@ -9,6 +9,8 @@ defineProps({
         required: true
     }
 })
+
+// TODO 書けば書くだけ文字が飛び出ちゃうゾウ
 </script>
 
 <style scoped>

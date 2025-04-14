@@ -17,6 +17,8 @@ const emit = defineEmits(['click'])
 const handleClick = () => {
     emit('click', props.label) // emit を使用して親コンポーネントにイベントを送信
 }
+
+// TODO ボタン色変更
 </script>
 
 <style scoped>
