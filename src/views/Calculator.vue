@@ -63,7 +63,7 @@ const handleClick = (btn) => {
 
             // 数字が17桁を超えたらエラー表示（演算子・記号は除外）
             const numericLength = display.value.replace(/[^0-9.]/g, '').length
-            if (isNumberInput && numericLength >= 17) {
+            if (isNumberInput && numericLength >= 12) {
                 display.value = 'Error'
                 isResultShown.value = true
                 break
@@ -127,8 +127,8 @@ onBeforeUnmount(() => {
 }
 
 .display {
-    width: 100%;
-    height: 50px;
+    width: 100%x;
+    height: 60px;
     border-radius: 5px;
     border: 1px solid #ddd;
     background-color: #ccc;
@@ -137,6 +137,11 @@ onBeforeUnmount(() => {
     font-size: 35px;
     margin-bottom: 20px;
     box-sizing: border-box;
+    white-space: nowrap;       /* テキストの折り返しを防ぐ */
+    overflow: hidden;          /* 超えたら表示しない */
+    text-overflow: ellipsis;   /* 必要なら…で省略 */
+    max-width: 100%;           /* 親の幅に収める */
+    box-sizing: border-box;    /* padding含めて幅を計算 */
 }
 
 .button-panel {
