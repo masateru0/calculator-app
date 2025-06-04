@@ -26,7 +26,7 @@ const handleClick = (btn) => {
     if (display.value === 'Error' && btn !== 'C' && btn !== 'AC') {
         return
     }
-    
+
     switch (btn) {
         case 'AC':
             display.value = '0'
@@ -119,12 +119,41 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .calculator {
-    max-width: 300px;
-    margin: auto;
-    margin-top: 50px;
-    border: 2px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-    background: #f9f9f9;
+    background-color: #2a0a89;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.display {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #ccc;
+    padding: 5px 10px;
+    text-align: right;
+    font-size: 35px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.button-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+</style>
+
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3FFD8;
+    margin: 0;
+    height: 100vh;
+    align-items: center;
 }
 </style>
