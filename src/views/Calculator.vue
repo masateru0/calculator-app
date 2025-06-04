@@ -22,9 +22,15 @@ const buttons = [
 ]
 
 const handleClick = (btn) => {
+    // Error状態中は "C" または "AC" 以外は無視する
+    if (display.value === 'Error' && btn !== 'C' && btn !== 'AC') {
+        return
+    }
+    
     switch (btn) {
         case 'AC':
             display.value = '0'
+            isResultShown.value = false // 結果表示状態もリセット
             break
 
         case 'C':
@@ -54,6 +60,14 @@ const handleClick = (btn) => {
         default:
             // 数字 or "." を押した時、計算直後なら上書き
             const isNumberInput = /^[0-9.]+$/.test(btn)
+
+            // 数字が17桁を超えたらエラー表示（演算子・記号は除外）
+            const numericLength = display.value.replace(/[^0-9.]/g, '').length
+            if (isNumberInput && numericLength >= 17) {
+                display.value = 'Error'
+                isResultShown.value = true
+                break
+            }
 
             if (isResultShown.value && isNumberInput) {
                 display.value = btn
